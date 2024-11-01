@@ -64,6 +64,39 @@ const MitshuStoreSPA = () => {
     </div>
   );
 
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [selectedRace, setSelectedRace] = useState(null);
+
+  const races = [
+    {
+      name: "Race V1",
+      description: "Level 1-100",
+      price: "Rp100.000",
+      estimatedTime: "3-5 hari"
+    },
+    {
+      name: "Race V2",
+      description: "Level 100-200",
+      price: "Rp150.000",
+      estimatedTime: "5-7 hari"
+    },
+    {
+      name: "Race V3",
+      description: "Level 200-300",
+      price: "Rp200.000",
+      estimatedTime: "7-10 hari"
+    }
+  ];
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+  const handleRaceSelect = (race) => {
+    setSelectedRace(race);
+    setDropdownOpen(false);
+  };
+
   const JokiContent = () => (
     <div className="space-y-8">
       <h2 className="text-3xl font-bold text-center">Joki Blox Fruit</h2>
@@ -154,7 +187,6 @@ const MitshuStoreSPA = () => {
             Rp1.500
           </p>
           <p className="text-gray-300 mt-4">
-          <p className="text-gray-300 mt-4">
   <strong>WAJIB DIBACA SEBELUM MEMBELI</strong>
   <br /><br />
   - Khusus Sea 2 & 3<br />
@@ -168,25 +200,92 @@ const MitshuStoreSPA = () => {
   
   Selamat berbelanja & terima kasih!
 </p>
-          </p>
           <button className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
             Pesan Sekarang
           </button>
         </div>
 
         <div className="bg-gray-800/50 p-6 rounded-lg">
-        <h4 className="text-lg font-bold text-center mb-2">Paket Silver</h4>
+        <h4 className="text-lg font-bold text-center mb-2">100 Level</h4>
           <img
-            src="src/image/hani.jpg" // Replace with your image URL
+            src="src/image/level.jpg" // Replace with your image URL
             alt="Package Image"
             className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
           />
           <p className="text-purple-400 text-2xl font-semibold mt-2">
-            Gratis
+            Rp2.000
           </p>
           <p className="text-gray-300 mt-4">
-            Level up hingga level 300, lengkap dengan farming materials.
+  <strong>WAJIB DIBACA SEBELUM MEMBELI</strong>
+  <br /><br />
+  - Mendapatkan 100 Belly<br />
+  - Tidak mengganti apa pun seperti aksesori, Fighting Style, dll.<br />
+  - Aman, proses cepat, terpercaya<br />
+  - Diproses sesuai antrian<br /><br />
+  
+  Setelah pembelian selesai, silakan klik "Konfirmasi Pesanan Selesai"
+  dan beri rating ⭐⭐⭐⭐⭐<br /><br />
+  
+  Selamat berbelanja & terima kasih!
+</p>
+          <button className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
+            Pesan Sekarang
+          </button>
+        </div>
+
+        <div className="bg-gray-800/50 p-6 rounded-lg">
+        <h4 className="text-lg font-bold text-center mb-2">Cursed dual katana</h4>
+          <img
+            src="src/image/cdk.jpg" // Replace with your image URL
+            alt="Package Image"
+            className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
+          />
+          <p className="text-purple-400 text-2xl font-semibold mt-2">
+            Rp15.000
           </p>
+          <p className="text-gray-300 mt-4">
+  <strong>WAJIB DIBACA SEBELUM MEMBELI</strong>
+  <br /><br />
+  - Sudah Yama & Tushita(Sudah 350 Mastery)<br />
+  - Unlock all skill<br />
+  - Tidak mengganti apa pun seperti aksesori, Fighting Style, dll.<br />
+  - Aman, proses cepat, terpercaya<br />
+  - Diproses sesuai antrian<br /><br />
+  
+  Setelah pembelian selesai, silakan klik "Konfirmasi Pesanan Selesai"
+  dan beri rating ⭐⭐⭐⭐⭐<br /><br />
+  
+  Selamat berbelanja & terima kasih!
+</p>
+          <button className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
+            Pesan Sekarang
+          </button>
+        </div>
+
+        <div className="bg-gray-800/50 p-6 rounded-lg">
+        <h4 className="text-lg font-bold text-center mb-2">Shark Anchor</h4>
+          <img
+            src="src/image/sharkanchor.jpg" // Replace with your image URL
+            alt="Package Image"
+            className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
+          />
+          <p className="text-purple-400 text-2xl font-semibold mt-2">
+            Rp30.000
+          </p>
+          <p className="text-gray-300 mt-4">
+  <strong>WAJIB DIBACA SEBELUM MEMBELI</strong>
+  <br /><br />
+  - Sudah berlevel 1600 dan sudah di SEA. 3<br />
+  - Material akan kami carkan.<br />
+  - Tidak mengganti apa pun seperti aksesori, Fighting Style, dll.<br />
+  - Aman, proses cepat, terpercaya<br />
+  - Diproses sesuai antrian<br /><br />
+  
+  Setelah pembelian selesai, silakan klik "Konfirmasi Pesanan Selesai"
+  dan beri rating ⭐⭐⭐⭐⭐<br /><br />
+  
+  Selamat berbelanja & terima kasih!
+</p>
           <button className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
             Pesan Sekarang
           </button>
@@ -210,58 +309,62 @@ const MitshuStoreSPA = () => {
           </button>
         </div>
 
-        <div className="bg-gray-800/50 p-6 rounded-lg">
-        <h4 className="text-lg font-bold text-center mb-2">Paket Silver</h4>
+        <div className="relative bg-gray-800/50 p-6 rounded-lg">
+          <h4 className="text-lg font-bold text-center mb-2">Paket Silver</h4>
           <img
-            src="src/download.png" // Replace with your image URL
+            src="/api/placeholder/400/320"
             alt="Package Image"
             className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
           />
           <p className="text-purple-400 text-2xl font-semibold mt-2">
-            Rp100.000
+            {selectedRace ? selectedRace.price : "Pilih Race"}
           </p>
           <p className="text-gray-300 mt-4">
             Level up hingga level 300, lengkap dengan farming materials.
           </p>
-          <button className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
-            Pesan Sekarang
+          <button
+            onClick={toggleDropdown}
+            className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 w-full flex items-center justify-center space-x-2"
+          >
+            <span>{selectedRace ? `Selected: ${selectedRace.name}` : "Pilih Race"}</span>
+            <svg 
+              className={`w-4 h-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+            </svg>
           </button>
-        </div>
 
-        <div className="bg-gray-800/50 p-6 rounded-lg">
-        <h4 className="text-lg font-bold text-center mb-2">Paket Silver</h4>
-          <img
-            src="src/download.png" // Replace with your image URL
-            alt="Package Image"
-            className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
-          />
-          <p className="text-purple-400 text-2xl font-semibold mt-2">
-            Rp100.000
-          </p>
-          <p className="text-gray-300 mt-4">
-            Level up hingga level 300, lengkap dengan farming materials.
-          </p>
-          <button className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
-            Pesan Sekarang
-          </button>
-        </div>
+          {selectedRace && (
+            <div className="mt-4 p-3 bg-gray-700/50 rounded-lg">
+              <p className="text-gray-300 text-sm">Estimasi waktu: {selectedRace.estimatedTime}</p>
+            </div>
+          )}
 
-        <div className="bg-gray-800/50 p-6 rounded-lg">
-        <h4 className="text-lg font-bold text-center mb-2">Paket Silver</h4>
-          <img
-            src="src/download.png" // Replace with your image URL
-            alt="Package Image"
-            className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
-          />
-          <p className="text-purple-400 text-2xl font-semibold mt-2">
-            Rp100.000
-          </p>
-          <p className="text-gray-300 mt-4">
-            Level up hingga level 300, lengkap dengan farming materials.
-          </p>
-          <button className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
-            Pesan Sekarang
-          </button>
+          {dropdownOpen && (
+            <div className="absolute left-0 right-0 bg-white text-gray-800 rounded-lg shadow-lg mt-2 p-2 z-10">
+              <ul>
+                {races.map((race, index) => (
+                  <li
+                    key={index}
+                    onClick={() => handleRaceSelect(race)}
+                    className="hover:bg-gray-100 px-4 py-3 cursor-pointer rounded transition-colors duration-150"
+                  >
+                    <div className="flex flex-col">
+                      <div className="flex justify-between items-center">
+                        <span className="font-semibold">{race.name}</span>
+                        <span className="text-purple-600">{race.price}</span>
+                      </div>
+                      <span className="text-sm text-gray-600">{race.description}</span>
+                      <span className="text-xs text-gray-500">Estimasi: {race.estimatedTime}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
 
       </div>
