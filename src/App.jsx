@@ -64,38 +64,105 @@ const MitshuStoreSPA = () => {
     </div>
   );
 
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [dropdownRaceOpen, setDropdownRaceOpen] = useState(false);
+  const [dropdownBossOpen, setDropdownBossOpen] = useState(false);
+  const [dropdownMasteryOpen, setDropdownMasteryOpen] = useState(false);
   const [selectedRace, setSelectedRace] = useState(null);
+  const [selectedBoss, setSelectedBoss] = useState(null);
+  const [selectedMastery, setSelectedMastery] = useState(null);
 
   const races = [
     {
-      name: "Race V1",
-      description: "Level 1-100",
-      price: "Rp100.000",
-      estimatedTime: "3-5 hari"
-    },
-    {
       name: "Race V2",
-      description: "Level 100-200",
-      price: "Rp150.000",
-      estimatedTime: "5-7 hari"
+      description: "Level 800",
+      price: "Rp2.000",
+      link: "https://itemku.com/t/mitshu-store-2",
     },
     {
       name: "Race V3",
-      description: "Level 200-300",
-      price: "Rp200.000",
-      estimatedTime: "7-10 hari"
-    }
+      description: "Level 1000",
+      price: "Rp4.000",
+      estimatedTime: "5-7 hari",
+      link: "/race-v3-link",
+    },
+    {
+      name: "Trial Race V4",
+      description: "Level 1500+",
+      price: "Rp7.000",
+      estimatedTime: "7-10 hari",
+      link: "/trial-race-v4-link",
+    },
   ];
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
+  const bosses = [
+    {
+      name: "Darkbeard",
+      description: "Level 700+",
+      price: "Rp7.000",
+      link: "",
+    },
+    {
+      name: "RIP Indra",
+      description: "Level 1500+",
+      price: "Rp10.000",
+      estimatedTime: "5-7 hari",
+      link: "",
+    },
+    {
+      name: "Dough King",
+      description: "Level 1500+",
+      price: "Rp10.000",
+      estimatedTime: "7-10 hari",
+      link: "",
+    },
+  ];
+
+  const masteries = [
+    {
+      name: "Mastery fruit",
+      description: "Level 700+",
+      price: "Rp2.200",
+      link: "",
+    },
+    {
+      name: "Mastery gun ",
+      description: "Level 1500+",
+      price: "Rp2.200",
+      link: "",
+    },
+    {
+      name: "Mastery sword",
+      description: "Level 1500+",
+      price: "Rp1.300",
+
+      link: "",
+    },
+    {
+      name: "Mastery mele",
+      description: "Level 1500+",
+
+      link: "",
+    },
+  ];
+
+  const toggleDropdownRace = () => setDropdownRaceOpen(!dropdownRaceOpen);
+  const toggleDropdownBoss = () => setDropdownBossOpen(!dropdownBossOpen);
+  const toggleDropdownMastery = () => setDropdownMasteryOpen(!dropdownMasteryOpen);
 
   const handleRaceSelect = (race) => {
     setSelectedRace(race);
-    setDropdownOpen(false);
+    setDropdownRaceOpen(false); // Fixed: Changed setDropdownOpen to setDropdownRaceOpen
   };
+
+  const handleBossSelect = (boss) => {
+    setSelectedBoss(boss); // Fixed: Changed setSelectedRace to setSelectedBoss
+    setDropdownBossOpen(false); // Fixed: Changed setDropdownOpen to setDropdownBossOpen
+  };
+  const handleMasterySelect = (mastery) => {
+    setSelectedMastery(mastery); // Fixed: Changed setSelectedRace to setSelectedBoss
+    setDropdownMasteryOpen(false); // Fixed: Changed setDropdownOpen to setDropdownBossOpen
+  };
+
 
   const JokiContent = () => (
     <div className="space-y-8">
@@ -291,82 +358,174 @@ const MitshuStoreSPA = () => {
           </button>
         </div>
 
-        <div className="bg-gray-800/50 p-6 rounded-lg">
-        <h4 className="text-lg font-bold text-center mb-2">Paket Silver</h4>
-          <img
-            src="src/download.png" // Replace with your image URL
-            alt="Package Image"
-            className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
-          />
-          <p className="text-purple-400 text-2xl font-semibold mt-2">
-            Rp100.000
-          </p>
-          <p className="text-gray-300 mt-4">
-            Level up hingga level 300, lengkap dengan farming materials.
-          </p>
-          <button className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
+        <div className="relative bg-gray-800/50 p-6 rounded-lg">
+        <h4 className="text-lg font-bold text-center mb-2">Mastery</h4>
+        <img
+          src="src/image/race.jpg"
+          alt="Package Image"
+          className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
+        />
+        <p className="text-purple-400 text-2xl font-semibold mt-2">
+          {selectedMastery ? selectedMastery.price : "Pilih Mastery"}
+        </p>
+        <p className="text-gray-300 mt-4">
+          <strong>WAJIB DIBACA SEBELUM MEMBELI</strong>
+          <br /><br />
+          - Mastery fruit & gun hanya bisa order sampai 400 mastery<br />
+          - Mastery mele & sword bisa sampai max<br />
+          - Pastikan stat mastery sesuai agar pengerjaan cepat<br />
+          - Tidak mengganti apa pun seperti aksesori, Fighting Style, dll.<br />
+          - Aman, proses cepat, terpercaya<br />
+          - Diproses sesuai antrian<br /><br />
+          Setelah pembelian selesai, silakan klik "Konfirmasi Pesanan Selesai"
+          dan beri rating ⭐⭐⭐⭐⭐<br /><br />
+          Selamat berbelanja & terima kasih!
+        </p>
+        <button 
+          onClick={toggleDropdownMastery} 
+          className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600"
+        >
+          {selectedMastery ? selectedMastery.name : "Pilih Mastery"}
+        </button>
+        {dropdownMasteryOpen && (
+          <div className="absolute bg-gray-700 mt-2 rounded-lg shadow-lg p-4 z-10">
+            {masteries.map((mastery) => (
+              <button
+                key={mastery.name}
+                onClick={() => handleMasterySelect(mastery)}
+                className="block w-full text-left px-2 py-1 hover:bg-gray-600 rounded"
+              >
+                {mastery.name} - {mastery.price}
+              </button>
+            ))}
+          </div>
+        )}
+        {selectedMastery && (
+          <a
+            href={selectedMastery.link}
+            className="mt-4 block px-4 py-2 bg-purple-500 text-white rounded-lg text-center hover:bg-purple-600"
+          >
             Pesan Sekarang
-          </button>
-        </div>
+          </a>
+        )}
+      </div>
 
         <div className="relative bg-gray-800/50 p-6 rounded-lg">
-          <h4 className="text-lg font-bold text-center mb-2">Paket Silver</h4>
-          <img
-            src="/api/placeholder/400/320"
-            alt="Package Image"
-            className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
-          />
-          <p className="text-purple-400 text-2xl font-semibold mt-2">
-            {selectedRace ? selectedRace.price : "Pilih Race"}
-          </p>
-          <p className="text-gray-300 mt-4">
-            Level up hingga level 300, lengkap dengan farming materials.
-          </p>
-          <button
-            onClick={toggleDropdown}
-            className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 w-full flex items-center justify-center space-x-2"
+        <h4 className="text-lg font-bold text-center mb-2">Race</h4>
+        <img
+          src="src/image/race.jpg"
+          alt="Package Image"
+          className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
+        />
+        <p className="text-purple-400 text-2xl font-semibold mt-2">
+          {selectedRace ? selectedRace.price : "Pilih Race"}
+        </p>
+        <p className="text-gray-300 mt-4">
+          <strong>WAJIB DIBACA SEBELUM MEMBELI</strong>
+          <br /><br />
+          - Race V2<br />
+          - Sudah level 850 & Memiliki 500.000 Belly<br />
+          <br /><br />
+          - Race V3<br />
+          - Sudah level 1000 & Memiliki 2JT Belly<br />
+          <br /><br />
+          - Trial Race V4<br />
+          - Sudah Melalukan Pull lever<br />
+          - Bisa carry/joki<br />
+          - Tidak mengganti apa pun seperti aksesori, Fighting Style, dll.<br />
+          - Aman, proses cepat, terpercaya<br />
+          - Diproses sesuai antrian<br /><br />
+          Setelah pembelian selesai, silakan klik "Konfirmasi Pesanan Selesai"
+          dan beri rating ⭐⭐⭐⭐⭐<br /><br />
+          Selamat berbelanja & terima kasih!
+        </p>
+        <button 
+          onClick={toggleDropdownRace} 
+          className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600"
+        >
+          {selectedRace ? selectedRace.name : "Pilih Race"}
+        </button>
+        {dropdownRaceOpen && (
+          <div className="absolute bg-gray-700 mt-2 rounded-lg shadow-lg p-4 z-10">
+            {races.map((race) => (
+              <button
+                key={race.name}
+                onClick={() => handleRaceSelect(race)}
+                className="block w-full text-left px-2 py-1 hover:bg-gray-600 rounded"
+              >
+                {race.name} - {race.price}
+              </button>
+            ))}
+          </div>
+        )}
+        {selectedRace && (
+          <a
+            href={selectedRace.link}
+            className="mt-4 block px-4 py-2 bg-purple-500 text-white rounded-lg text-center hover:bg-purple-600"
           >
-            <span>{selectedRace ? `Selected: ${selectedRace.name}` : "Pilih Race"}</span>
-            <svg 
-              className={`w-4 h-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
+            Pesan Sekarang
+          </a>
+        )}
+      </div>
 
-          {selectedRace && (
-            <div className="mt-4 p-3 bg-gray-700/50 rounded-lg">
-              <p className="text-gray-300 text-sm">Estimasi waktu: {selectedRace.estimatedTime}</p>
-            </div>
-          )}
-
-          {dropdownOpen && (
-            <div className="absolute left-0 right-0 bg-white text-gray-800 rounded-lg shadow-lg mt-2 p-2 z-10">
-              <ul>
-                {races.map((race, index) => (
-                  <li
-                    key={index}
-                    onClick={() => handleRaceSelect(race)}
-                    className="hover:bg-gray-100 px-4 py-3 cursor-pointer rounded transition-colors duration-150"
-                  >
-                    <div className="flex flex-col">
-                      <div className="flex justify-between items-center">
-                        <span className="font-semibold">{race.name}</span>
-                        <span className="text-purple-600">{race.price}</span>
-                      </div>
-                      <span className="text-sm text-gray-600">{race.description}</span>
-                      <span className="text-xs text-gray-500">Estimasi: {race.estimatedTime}</span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-
+      {/* Boss Section */}
+      <div className="relative bg-gray-800/50 p-6 rounded-lg">
+        <h4 className="text-lg font-bold text-center mb-2">Raid Boss</h4>
+        <img
+          src="src/image/race.jpg"
+          alt="Package Image"
+          className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
+        />
+        <p className="text-purple-400 text-2xl font-semibold mt-2">
+          {selectedBoss ? selectedBoss.price : "Pilih Raid Boss"}
+        </p>
+        <p className="text-gray-300 mt-4">
+          <strong>WAJIB DIBACA SEBELUM MEMBELI</strong>
+          <br /><br />
+          - Darkbeard<br />
+          - Mendapatkan Dark Fragment<br />
+          <br /><br />
+          - RIP Indra<br />
+          - Mendapatkan valkrye helmet & unlock portal<br />
+          <br /><br />
+          - Dough King<br />
+          - Mendapatkan Mirro fractak & unlock raid dough<br />
+          - Bisa carry/joki<br />
+          - Tidak mengganti apa pun seperti aksesori, Fighting Style, dll.<br />
+          - Aman, proses cepat, terpercaya<br />
+          - Diproses sesuai antrian<br /><br />
+          Setelah pembelian selesai, silakan klik "Konfirmasi Pesanan Selesai"
+          dan beri rating ⭐⭐⭐⭐⭐<br /><br />
+          Selamat berbelanja & terima kasih!
+        </p>
+        <button 
+          onClick={toggleDropdownBoss} 
+          className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600"
+        >
+          {selectedBoss ? selectedBoss.name : "Pilih Raid Boss"}
+        </button>
+        {dropdownBossOpen && (
+          <div className="absolute bg-gray-700 mt-2 rounded-lg shadow-lg p-4 z-10">
+            {bosses.map((boss) => (
+              <button
+                key={boss.name}
+                onClick={() => handleBossSelect(boss)}
+                className="block w-full text-left px-2 py-1 hover:bg-gray-600 rounded"
+              >
+                {boss.name} - {boss.price}
+              </button>
+            ))}
+          </div>
+        )}
+        {selectedBoss && (
+          <a
+            href={selectedBoss.link}
+            className="mt-4 block px-4 py-2 bg-purple-500 text-white rounded-lg text-center hover:bg-purple-600"
+          >
+            Pesan Sekarang
+          </a>
+        )}
+      </div>
       </div>
     </div>
   );
