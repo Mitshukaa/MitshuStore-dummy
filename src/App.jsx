@@ -67,9 +67,16 @@ const MitshuStoreSPA = () => {
   const [dropdownRaceOpen, setDropdownRaceOpen] = useState(false);
   const [dropdownBossOpen, setDropdownBossOpen] = useState(false);
   const [dropdownMasteryOpen, setDropdownMasteryOpen] = useState(false);
+  const [dropdownUnlockraceOpen, setDropdownUnlockraceOpen] = useState(false);
+  const [dropdownSwordOpen, setDropdownSwordOpen] = useState(false);
+  const [dropdownMaterialOpen, setDropdownMaterialOpen] = useState(false);
+
   const [selectedRace, setSelectedRace] = useState(null);
   const [selectedBoss, setSelectedBoss] = useState(null);
   const [selectedMastery, setSelectedMastery] = useState(null);
+  const [selectedUnlockrace, setSelectedUnlockrace] = useState(null);
+  const [selectedSword, setSelectedSword] = useState(null);
+  const [selectedMaterial, setSelectedMaterial] = useState(null);
 
   const races = [
     {
@@ -92,12 +99,19 @@ const MitshuStoreSPA = () => {
       estimatedTime: "7-10 hari",
       link: "/trial-race-v4-link",
     },
+    {
+      name: "Race V4 FULL GEAR",
+      description: "Level 1500+",
+      price: "Rp35.000",
+      estimatedTime: "7-10 hari",
+      link: "/trial-race-v4-link",
+    },
   ];
 
   const bosses = [
     {
       name: "Darkbeard",
-      description: "Level 700+",
+
       price: "Rp7.000",
       link: "",
     },
@@ -120,7 +134,7 @@ const MitshuStoreSPA = () => {
   const masteries = [
     {
       name: "Mastery fruit",
-      description: "Level 700+",
+
       price: "Rp2.200",
       link: "",
     },
@@ -140,14 +154,86 @@ const MitshuStoreSPA = () => {
     {
       name: "Mastery mele",
       description: "Level 1500+",
-
+      price: "Rp1.300",
       link: "",
     },
+  ];
+
+  const unlockraces = [
+    {
+      name: "Cyborg",
+
+      price: "Rp13.000",
+      link: "",
+    },
+    {
+      name: "Ghoul",
+
+      price: "Rp20.000",
+      link: "",
+    }
+  ];
+
+  const materials = [
+    {
+      name: "Angel Wings,Leather,Magma Ore,Scrap Metal,Wooden Plank,Yeti Fur,Fish Tail,Mystic Droplet,Radioactive,Vampire Vang,Gunpowder,Mini Tusk",
+      description: "25 material",
+      price: "2.500",
+      link: "",
+    },
+    {
+      name: "Meteorite,Conjured Cocoa,Demonic Wisp,Dragon Scale",
+      description: "10 material",
+      price: "2.500",
+      link: "",
+    },
+    {
+      name: "Bones",
+      description: "Bones",
+      price: "Rp2.000",
+      link: "",
+    },
+    {
+      name: "Ectoplasm",
+      description: "100 Ectoplasm",
+      price: "Rp1.000",
+      link: "",
+    }
+  ];
+
+  const swords = [
+    {
+      name: "Yama",
+
+      price: "Rp10.000",
+      link: "",
+    },
+    {
+      name: "Tushita",
+ 
+      price: "Rp10.000",
+      link: "",
+    },
+    {
+      name: "Hallow scythe",
+ 
+      price: "Rp15.000",
+      link: "",
+    },
+    {
+      name: "Wando,Shisui,Saddi",
+ 
+      price: "Rp3.000",
+      link: "",
+    }
   ];
 
   const toggleDropdownRace = () => setDropdownRaceOpen(!dropdownRaceOpen);
   const toggleDropdownBoss = () => setDropdownBossOpen(!dropdownBossOpen);
   const toggleDropdownMastery = () => setDropdownMasteryOpen(!dropdownMasteryOpen);
+  const toggleDropdownUnlockrace = () => setDropdownUnlockraceOpen(!dropdownUnlockraceOpen);
+  const toggleDropdownSword = () => setDropdownSwordOpen(!dropdownSwordOpen);
+  const toggleDropdownMaterial = () => setDropdownMaterialOpen(!dropdownMaterialOpen);
 
   const handleRaceSelect = (race) => {
     setSelectedRace(race);
@@ -158,9 +244,25 @@ const MitshuStoreSPA = () => {
     setSelectedBoss(boss); // Fixed: Changed setSelectedRace to setSelectedBoss
     setDropdownBossOpen(false); // Fixed: Changed setDropdownOpen to setDropdownBossOpen
   };
+
   const handleMasterySelect = (mastery) => {
     setSelectedMastery(mastery); // Fixed: Changed setSelectedRace to setSelectedBoss
     setDropdownMasteryOpen(false); // Fixed: Changed setDropdownOpen to setDropdownBossOpen
+  };
+
+  const handleUnlockraceSelect = (unlockrace) => {
+    setSelectedUnlockrace(unlockrace); // Fixed: Changed setSelectedRace to setSelectedBoss
+    setDropdownUnlockraceOpen(false); // Fixed: Changed setDropdownOpen to setDropdownBossOpen
+  };
+
+  const handleSwordSelect = (sword) => {
+    setSelectedSword(sword); // Fixed: Changed setSelectedRace to setSelectedBoss
+    setDropdownSwordOpen(false); // Fixed: Changed setDropdownOpen to setDropdownBossOpen
+  };
+
+  const handleMaterialSelect = (material) => {
+    setSelectedMaterial(material); // Fixed: Changed setSelectedRace to setSelectedBoss
+    setDropdownMaterialOpen(false); // Fixed: Changed setDropdownOpen to setDropdownBossOpen
   };
 
 
@@ -216,7 +318,7 @@ const MitshuStoreSPA = () => {
             className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
           />
           <p className="text-purple-400 text-2xl font-semibold mt-2">
-            Rp40.000
+            Rp35.000
           </p>
           <p className="text-gray-300 mt-4">
   <strong>WAJIB DIBACA SEBELUM MEMBELI</strong>
@@ -226,6 +328,36 @@ const MitshuStoreSPA = () => {
   - Sudah termasuk material seperti Leviathan Heart, Dark Fragment, Vampire Fang, dan Demonic Wisp
   (jika sudah memiliki semua, akan tetap dicari lagi)<br />
   - Memiliki 5M Belly dan 5K Fragment<br />
+  - Stat wajib ada di Defense dan Devil Fruit selain Portal dan Control (disarankan Magma atau Light)<br />
+  - Tidak mengganti apa pun seperti aksesori, Fighting Style, dll.<br />
+  - Aman, proses cepat, terpercaya<br />
+  - Diproses sesuai antrian<br /><br />
+  
+  Setelah pembelian selesai, silakan klik "Konfirmasi Pesanan Selesai"
+  dan beri rating ⭐⭐⭐⭐⭐<br /><br />
+  
+  Selamat berbelanja & terima kasih!
+</p>
+
+          <button className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
+            Pesan Sekarang
+          </button>
+        </div>
+
+      <div className="bg-gray-800/50 p-5 rounded-lg">
+          <h4 className="text-lg font-bold text-center mb-2">Leviathan Heart</h4>
+          <img
+            src="src/image/leviheart.jpg" // Replace with your image URL
+            alt="Package Image"
+            className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
+          />
+          <p className="text-purple-400 text-2xl font-semibold mt-2">
+            Rp28.000
+          </p>
+          <p className="text-gray-300 mt-4">
+  <strong>WAJIB DIBACA SEBELUM MEMBELI</strong>
+  <br /><br />
+  - Sudah berlevel 1600 dan sudah di SEA 3<br />
   - Stat wajib ada di Defense dan Devil Fruit selain Portal dan Control (disarankan Magma atau Light)<br />
   - Tidak mengganti apa pun seperti aksesori, Fighting Style, dll.<br />
   - Aman, proses cepat, terpercaya<br />
@@ -330,6 +462,35 @@ const MitshuStoreSPA = () => {
         </div>
 
         <div className="bg-gray-800/50 p-6 rounded-lg">
+        <h4 className="text-lg font-bold text-center mb-2">True triple katana</h4>
+          <img
+            src="src/image/ttk.jpg" // Replace with your image URL
+            alt="Package Image"
+            className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
+          />
+          <p className="text-purple-400 text-2xl font-semibold mt-2">
+            Rp15.000
+          </p>
+          <p className="text-gray-300 mt-4">
+  <strong>WAJIB DIBACA SEBELUM MEMBELI</strong>
+  <br /><br />
+  - Memiliki 8m belly<br />
+  - Sudah Termasuk Pencarian 3 Sword & 350 Mastery<br />
+  - Tidak mengganti apa pun seperti aksesori, Fighting Style, dll.<br />
+  - Aman, proses cepat, terpercaya<br />
+  - Diproses sesuai antrian<br /><br />
+  
+  Setelah pembelian selesai, silakan klik "Konfirmasi Pesanan Selesai"
+  dan beri rating ⭐⭐⭐⭐⭐<br /><br />
+  
+  Selamat berbelanja & terima kasih!
+</p>
+          <button className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
+            Pesan Sekarang
+          </button>
+        </div>
+
+        <div className="bg-gray-800/50 p-6 rounded-lg">
         <h4 className="text-lg font-bold text-center mb-2">Shark Anchor</h4>
           <img
             src="src/image/sharkanchor.jpg" // Replace with your image URL
@@ -357,6 +518,88 @@ const MitshuStoreSPA = () => {
             Pesan Sekarang
           </button>
         </div>
+
+        <div className="bg-gray-800/50 p-6 rounded-lg">
+        <h4 className="text-lg font-bold text-center mb-2">Soul Guitar</h4>
+          <img
+            src="src/image/soulguitar.jpg" // Replace with your image URL
+            alt="Package Image"
+            className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
+          />
+          <p className="text-purple-400 text-2xl font-semibold mt-2">
+            Rp14.000
+          </p>
+          <p className="text-gray-300 mt-4">
+  <strong>WAJIB DIBACA SEBELUM MEMBELI</strong>
+  <br /><br />
+  - Sudah di SEA 3<br />
+  - Material akan kami carkan dark fragment,ectoplasm,dan bones<br />
+  - Tidak mengganti apa pun seperti aksesori, Fighting Style, dll.<br />
+  - Aman, proses cepat, terpercaya<br />
+  - Diproses sesuai antrian<br /><br />
+  
+  Setelah pembelian selesai, silakan klik "Konfirmasi Pesanan Selesai"
+  dan beri rating ⭐⭐⭐⭐⭐<br /><br />
+  
+  Selamat berbelanja & terima kasih!
+</p>
+          <button className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
+            Pesan Sekarang
+          </button>
+        </div>
+
+        <div className="relative bg-gray-800/50 p-6 rounded-lg">
+        <h4 className="text-lg font-bold text-center mb-2">Material</h4>
+        <img
+          src="src/image/race.jpg"
+          alt="Package Image"
+          className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
+        />
+        <p className="text-purple-400 text-2xl font-semibold mt-2">
+          {selectedMaterial ? selectedMaterial.price : "Pilih Material"}
+        </p>
+        <p className="text-gray-300 mt-4">
+          <strong>WAJIB DIBACA SEBELUM MEMBELI</strong>
+          <br /><br />
+          - Mastery fruit & gun hanya bisa order sampai 400 mastery<br />
+          - Mastery mele & sword bisa sampai max<br />
+          - Pastikan stat mastery sesuai agar pengerjaan cepat<br />
+          - Tidak mengganti apa pun seperti aksesori, Fighting Style, dll.<br />
+          - Aman, proses cepat, terpercaya<br />
+          - Diproses sesuai antrian<br /><br />
+          Setelah pembelian selesai, silakan klik "Konfirmasi Pesanan Selesai"
+          dan beri rating ⭐⭐⭐⭐⭐<br /><br />
+          Selamat berbelanja & terima kasih!
+        </p>
+        <button 
+          onClick={toggleDropdownMaterial} 
+          className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600"
+        >
+          {selectedMaterial ? selectedMaterial.name : "Pilih Material"}
+        </button>
+        {dropdownMaterialOpen && (
+          <div className="absolute bg-gray-700 mt-2 rounded-lg shadow-lg p-4 z-10">
+            {materials.map((material) => (
+              <button
+                key={material.name}
+                onClick={() => handleMaterialSelect(material)}
+                className="block w-full text-left px-2 py-1 hover:bg-gray-600 rounded"
+              >
+                {material.name} - {material.price}<br />
+                {material.description}
+              </button>
+            ))}
+          </div>
+        )}
+        {selectedMaterial && (
+          <a
+            href={selectedMaterial.link}
+            className="mt-4 block px-4 py-2 bg-purple-500 text-white rounded-lg text-center hover:bg-purple-600"
+          >
+            Pesan Sekarang
+          </a>
+        )}
+      </div>
 
         <div className="relative bg-gray-800/50 p-6 rounded-lg">
         <h4 className="text-lg font-bold text-center mb-2">Mastery</h4>
@@ -432,6 +675,13 @@ const MitshuStoreSPA = () => {
           - Trial Race V4<br />
           - Sudah Melalukan Pull lever<br />
           - Bisa carry/joki<br />
+          <br /><br />
+          - Race V4 FULL GEAR<br />
+          - Sudah Melakukan Pull Lever<br />
+          - Minimal sudah V3 Race<br />
+          - Minimal sudah di sea 3<br />
+          - Minimal sudah punya fragment 26.750<br />
+          - Bisa Request Untuk penggantian Gear<br />
           - Tidak mengganti apa pun seperti aksesori, Fighting Style, dll.<br />
           - Aman, proses cepat, terpercaya<br />
           - Diproses sesuai antrian<br /><br />
@@ -453,7 +703,8 @@ const MitshuStoreSPA = () => {
                 onClick={() => handleRaceSelect(race)}
                 className="block w-full text-left px-2 py-1 hover:bg-gray-600 rounded"
               >
-                {race.name} - {race.price}
+                {race.name} - {race.price}<br />
+                {race.description}
               </button>
             ))}
           </div>
@@ -461,6 +712,122 @@ const MitshuStoreSPA = () => {
         {selectedRace && (
           <a
             href={selectedRace.link}
+            className="mt-4 block px-4 py-2 bg-purple-500 text-white rounded-lg text-center hover:bg-purple-600"
+          >
+            Pesan Sekarang
+          </a>
+        )}
+      </div>
+
+        <div className="relative bg-gray-800/50 p-6 rounded-lg">
+        <h4 className="text-lg font-bold text-center mb-2">Unlock Cyborg & Ghoul</h4>
+        <img
+          src="src/image/race.jpg"
+          alt="Package Image"
+          className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
+        />
+        <p className="text-purple-400 text-2xl font-semibold mt-2">
+          {selectedUnlockrace ? selectedUnlockrace.price : "Pilih Race yang mana"}
+        </p>
+        <p className="text-gray-300 mt-4">
+          <strong>WAJIB DIBACA SEBELUM MEMBELI</strong>
+          <br /><br />
+          - Race V2<br />
+          - Sudah level 850 & Memiliki 500.000 Belly<br />
+          <br /><br />
+          - Race V3<br />
+          - Sudah level 1000 & Memiliki 2JT Belly<br />
+          <br /><br />
+          - Trial Race V4<br />
+          - Sudah Melalukan Pull lever<br />
+          - Bisa carry/joki<br />
+          - Tidak mengganti apa pun seperti aksesori, Fighting Style, dll.<br />
+          - Aman, proses cepat, terpercaya<br />
+          - Diproses sesuai antrian<br /><br />
+          Setelah pembelian selesai, silakan klik "Konfirmasi Pesanan Selesai"
+          dan beri rating ⭐⭐⭐⭐⭐<br /><br />
+          Selamat berbelanja & terima kasih!
+        </p>
+        <button 
+          onClick={toggleDropdownUnlockrace} 
+          className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600"
+        >
+          {selectedUnlockrace ? selectedUnlockrace.name : "Pilih Race"}
+        </button>
+        {dropdownUnlockraceOpen && (
+          <div className="absolute bg-gray-700 mt-2 rounded-lg shadow-lg p-4 z-10">
+            {unlockraces.map((unlockrace) => (
+              <button
+                key={unlockrace.name}
+                onClick={() => handleUnlockraceSelect(unlockrace)}
+                className="block w-full text-left px-2 py-1 hover:bg-gray-600 rounded"
+              >
+                {unlockrace.name} - {unlockrace.price}
+              </button>
+            ))}
+          </div>
+        )}
+        {selectedUnlockrace && (
+          <a
+            href={selectedUnlockrace.link}
+            className="mt-4 block px-4 py-2 bg-purple-500 text-white rounded-lg text-center hover:bg-purple-600"
+          >
+            Pesan Sekarang
+          </a>
+        )}
+      </div>
+
+        <div className="relative bg-gray-800/50 p-6 rounded-lg">
+        <h4 className="text-lg font-bold text-center mb-2">Legendary Sword</h4>
+        <img
+          src="src/image/race.jpg"
+          alt="Package Image"
+          className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
+        />
+        <p className="text-purple-400 text-2xl font-semibold mt-2">
+          {selectedSword ? selectedSword.price : "Pilih Sword yang mana"}
+        </p>
+        <p className="text-gray-300 mt-4">
+          <strong>WAJIB DIBACA SEBELUM MEMBELI</strong>
+          <br /><br />
+          - Race V2<br />
+          - Sudah level 850 & Memiliki 500.000 Belly<br />
+          <br /><br />
+          - Race V3<br />
+          - Sudah level 1000 & Memiliki 2JT Belly<br />
+          <br /><br />
+          - Trial Race V4<br />
+          - Sudah Melalukan Pull lever<br />
+          - Bisa carry/joki<br />
+          - Tidak mengganti apa pun seperti aksesori, Fighting Style, dll.<br />
+          - Aman, proses cepat, terpercaya<br />
+          - Diproses sesuai antrian<br /><br />
+          Setelah pembelian selesai, silakan klik "Konfirmasi Pesanan Selesai"
+          dan beri rating ⭐⭐⭐⭐⭐<br /><br />
+          Selamat berbelanja & terima kasih!
+        </p>
+        <button 
+          onClick={toggleDropdownSword} 
+          className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600"
+        >
+          {selectedSword ? selectedSword.name : "Pilih Sword"}
+        </button>
+        {dropdownSwordOpen && (
+          <div className="absolute bg-gray-700 mt-2 rounded-lg shadow-lg p-4 z-10">
+            {swords.map((sword) => (
+              <button
+                key={sword.name}
+                onClick={() => handleSwordSelect(sword)}
+                className="block w-full text-left px-2 py-1 hover:bg-gray-600 rounded"
+              >
+                {sword.name} - {sword.price}
+              </button>
+            ))}
+          </div>
+        )}
+        {selectedSword && (
+          <a
+            href={selectedSword.link}
             className="mt-4 block px-4 py-2 bg-purple-500 text-white rounded-lg text-center hover:bg-purple-600"
           >
             Pesan Sekarang
