@@ -11,6 +11,7 @@ import {
   Facebook,
 } from "lucide-react";
 
+
 const MitshuStoreSPA = () => {
   const [activePage, setActivePage] = useState("about");
 
@@ -70,6 +71,8 @@ const MitshuStoreSPA = () => {
   const [dropdownUnlockraceOpen, setDropdownUnlockraceOpen] = useState(false);
   const [dropdownSwordOpen, setDropdownSwordOpen] = useState(false);
   const [dropdownMaterialOpen, setDropdownMaterialOpen] = useState(false);
+  const [dropdownKitsuneOpen, setDropdownKitsuneOpen] = useState(false);
+  const [dropdownAccountOpen, setDropdownAccountOpen] = useState(false);
 
   const [selectedRace, setSelectedRace] = useState(null);
   const [selectedBoss, setSelectedBoss] = useState(null);
@@ -77,6 +80,8 @@ const MitshuStoreSPA = () => {
   const [selectedUnlockrace, setSelectedUnlockrace] = useState(null);
   const [selectedSword, setSelectedSword] = useState(null);
   const [selectedMaterial, setSelectedMaterial] = useState(null);
+  const [selectedKitsune, setSelectedKitsune] = useState(null);
+  const [selectedAccount, setSelectedAccount] = useState(null);
 
   const races = [
     {
@@ -90,141 +95,189 @@ const MitshuStoreSPA = () => {
       description: "Level 1000",
       price: "Rp4.000",
       estimatedTime: "5-7 hari",
-      link: "/race-v3-link",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Race%20V3",
     },
     {
       name: "Trial Race V4",
       description: "Level 1500+",
       price: "Rp7.000",
       estimatedTime: "7-10 hari",
-      link: "/trial-race-v4-link",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Trial%20Race%20V4",
     },
     {
       name: "Race V4 FULL GEAR",
       description: "Level 1500+",
       price: "Rp35.000",
       estimatedTime: "7-10 hari",
-      link: "/trial-race-v4-link",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Race%20V4%20FULL%20GEAR",
     },
   ];
-
+  
   const bosses = [
     {
       name: "Darkbeard",
-
       price: "Rp7.000",
-      link: "",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20kill%20Darkbeard",
     },
     {
       name: "RIP Indra",
       description: "Level 1500+",
       price: "Rp10.000",
       estimatedTime: "5-7 hari",
-      link: "",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20kill%20RIP%20Indra",
     },
     {
       name: "Dough King",
       description: "Level 1500+",
       price: "Rp10.000",
       estimatedTime: "7-10 hari",
-      link: "",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20kill%20Dough%20King",
     },
   ];
-
+  
   const masteries = [
     {
       name: "Mastery fruit",
-
       price: "Rp2.200",
-      link: "",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Mastery%20fruit",
     },
     {
-      name: "Mastery gun ",
+      name: "Mastery gun",
       description: "Level 1500+",
       price: "Rp2.200",
-      link: "",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Mastery%20gun",
     },
     {
       name: "Mastery sword",
       description: "Level 1500+",
       price: "Rp1.300",
-
-      link: "",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Mastery%20sword",
     },
     {
       name: "Mastery mele",
       description: "Level 1500+",
       price: "Rp1.300",
-      link: "",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Mastery%20mele",
     },
   ];
-
+  
   const unlockraces = [
     {
-      name: "Cyborg",
-
+      name: "Ghoul",
       price: "Rp13.000",
-      link: "",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20unlock%20Cyborg",
     },
     {
-      name: "Ghoul",
-
+      name: "Cyborg",
       price: "Rp20.000",
-      link: "",
-    }
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20unlock%20Ghoul",
+    },
   ];
-
+  
   const materials = [
     {
-      name: "Angel Wings,Leather,Magma Ore,Scrap Metal,Wooden Plank,Yeti Fur,Fish Tail,Mystic Droplet,Radioactive,Vampire Vang,Gunpowder,Mini Tusk",
+      name: "Angel Wings, Leather, Magma Ore, Scrap Metal, Wooden Plank, Yeti Fur, Fish Tail, Mystic Droplet, Radioactive, Vampire Fang, Gunpowder, Mini Tusk",
       description: "25 material",
-      price: "2.500",
-      link: "",
+      price: "Rp2.500",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%2025%20material%20Uncommon/common:",
     },
     {
-      name: "Meteorite,Conjured Cocoa,Demonic Wisp,Dragon Scale",
+      name: "Meteorite, Conjured Cocoa, Demonic Wisp, Dragon Scale",
       description: "10 material",
-      price: "2.500",
-      link: "",
+      price: "Rp2.500",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%2010%20material%20Rare:",
     },
     {
       name: "Bones",
       description: "Bones",
       price: "Rp2.000",
-      link: "",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Bones",
     },
     {
       name: "Ectoplasm",
       description: "100 Ectoplasm",
       price: "Rp1.000",
-      link: "",
-    }
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20100%20Ectoplasm",
+    },
   ];
-
+  
   const swords = [
     {
       name: "Yama",
-
       price: "Rp10.000",
-      link: "",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Yama",
     },
     {
       name: "Tushita",
- 
       price: "Rp10.000",
-      link: "",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Tushita",
     },
     {
       name: "Hallow scythe",
- 
       price: "Rp15.000",
-      link: "",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Hallow%20scythe",
     },
     {
-      name: "Wando,Shisui,Saddi",
- 
+      name: "Rengoku",
+      price: "Rp5.000",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Rengoku",
+    },
+    {
+      name: "Wando, Shisui, Saddi",
       price: "Rp3.000",
-      link: "",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Wando,%20Shisui,%20Saddi%20PILIH:",
+    },
+  ];
+  
+  const kitsunes = [
+    {
+      name: "Paket dapet FOX LAMP",
+      price: "Rp25.000",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Paket%20FOX%20LAMP",
+    },
+    {
+      name: "Gacha kitsune shirine",
+      price: "Rp5.000",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20paket%20Gacha",
+    },
+  ];
+  
+  const accounts = [
+    {
+      name: "Akun race Human",
+      price: "Rp21.000",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Akun%20race%20Human",
+      stock: "0",
+    },
+    {
+      name: "Akun race Rabbit",
+      price: "Rp21.000",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Akun%20race%20Rabbit",
+      stock: "0",
+    },
+    {
+      name: "Akun race Angel",
+      price: "Rp21.000",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Akun%20race%20Angel",
+      stock: "0",
+    },
+    {
+      name: "Akun race Shark",
+      price: "Rp21.000",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Akun%20race%20Shark",
+      stock: "0",
+    },
+    {
+      name: "Akun race Cyborg",
+      price: "Rp21.000",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Akun%20race%20Cyborg",
+      stock: "0",
+    },
+    {
+      name: "Akun race Ghou;",
+      price: "Rp21.000",
+      link: "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Akun%20race%20Ghoul",
+      stock: "0"
     }
   ];
 
@@ -234,6 +287,8 @@ const MitshuStoreSPA = () => {
   const toggleDropdownUnlockrace = () => setDropdownUnlockraceOpen(!dropdownUnlockraceOpen);
   const toggleDropdownSword = () => setDropdownSwordOpen(!dropdownSwordOpen);
   const toggleDropdownMaterial = () => setDropdownMaterialOpen(!dropdownMaterialOpen);
+  const toggleDropdownKitsune = () => setDropdownKitsuneOpen(!dropdownKitsuneOpen);
+  const toggleDropdownAccount = () => setDropdownAccountOpen(!dropdownAccountOpen);
 
   const handleRaceSelect = (race) => {
     setSelectedRace(race);
@@ -263,6 +318,16 @@ const MitshuStoreSPA = () => {
   const handleMaterialSelect = (material) => {
     setSelectedMaterial(material); // Fixed: Changed setSelectedRace to setSelectedBoss
     setDropdownMaterialOpen(false); // Fixed: Changed setDropdownOpen to setDropdownBossOpen
+  };
+
+  const handleKitsuneSelect = (kitsune) => {
+    setSelectedKitsune(kitsune); // Fixed: Changed setSelectedRace to setSelectedBoss
+    setDropdownKitsuneOpen(false); // Fixed: Changed setDropdownOpen to setDropdownBossOpen
+  };
+
+  const handleAccountSelect = (account) => {
+    setSelectedAccount(account); // Fixed: Changed setSelectedRace to setSelectedBoss
+    setDropdownAccountOpen(false); // Fixed: Changed setDropdownOpen to setDropdownBossOpen
   };
 
 
@@ -338,10 +403,12 @@ const MitshuStoreSPA = () => {
   
   Selamat berbelanja & terima kasih!
 </p>
-
-          <button className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
-            Pesan Sekarang
-          </button>
+<button
+  onClick={() => window.location.href = "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Sanguine%20art"}
+  className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600"
+>
+  Pesan Sekarang
+</button>
         </div>
 
       <div className="bg-gray-800/50 p-5 rounded-lg">
@@ -368,14 +435,16 @@ const MitshuStoreSPA = () => {
   
   Selamat berbelanja & terima kasih!
 </p>
-
-          <button className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
-            Pesan Sekarang
-          </button>
+<button
+  onClick={() => window.location.href = "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Leviathan%20heart"}
+  className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600"
+>
+  Pesan Sekarang
+</button>
         </div>
 
         <div className="bg-gray-800/50 p-5 rounded-lg">
-          <h4 className="text-lg font-bold text-center mb-2">1M Belly</h4>
+          <h4 className="text-lg font-bold text-center mb-2">Belly</h4>
 
           <img
             src="src/image/Belly.jpg" // Replace with your image URL
@@ -398,14 +467,16 @@ const MitshuStoreSPA = () => {
   dan beri rating ⭐⭐⭐⭐⭐<br /><br />
   
   Selamat berbelanja & terima kasih!
-</p>
-          <button className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
-            Pesan Sekarang
-          </button>
+</p><button
+  onClick={() => window.location.href = "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order:%20(jumlah)%20belly"}
+  className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600"
+>
+  Pesan Sekarang
+</button>
         </div>
 
         <div className="bg-gray-800/50 p-6 rounded-lg">
-        <h4 className="text-lg font-bold text-center mb-2">100 Level</h4>
+        <h4 className="text-lg font-bold text-center mb-2">Leveling</h4>
           <img
             src="src/image/level.jpg" // Replace with your image URL
             alt="Package Image"
@@ -426,10 +497,12 @@ const MitshuStoreSPA = () => {
   dan beri rating ⭐⭐⭐⭐⭐<br /><br />
   
   Selamat berbelanja & terima kasih!
-</p>
-          <button className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
-            Pesan Sekarang
-          </button>
+</p><button
+  onClick={() => window.location.href = "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order:%20(jumlah)%20level"}
+  className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600"
+>
+  Pesan Sekarang
+</button>
         </div>
 
         <div className="bg-gray-800/50 p-6 rounded-lg">
@@ -455,10 +528,12 @@ const MitshuStoreSPA = () => {
   dan beri rating ⭐⭐⭐⭐⭐<br /><br />
   
   Selamat berbelanja & terima kasih!
-</p>
-          <button className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
-            Pesan Sekarang
-          </button>
+</p><button
+  onClick={() => window.location.href = "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Cursed%20dual%20katana"}
+  className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600"
+>
+  Pesan Sekarang
+</button>
         </div>
 
         <div className="bg-gray-800/50 p-6 rounded-lg">
@@ -485,9 +560,12 @@ const MitshuStoreSPA = () => {
   
   Selamat berbelanja & terima kasih!
 </p>
-          <button className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
-            Pesan Sekarang
-          </button>
+<button
+  onClick={() => window.location.href = "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20True%20triple%20katana"}
+  className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600"
+>
+  Pesan Sekarang
+</button>
         </div>
 
         <div className="bg-gray-800/50 p-6 rounded-lg">
@@ -514,9 +592,12 @@ const MitshuStoreSPA = () => {
   
   Selamat berbelanja & terima kasih!
 </p>
-          <button className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
-            Pesan Sekarang
-          </button>
+<button
+  onClick={() => window.location.href = "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Shark%20anchor"}
+  className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600"
+>
+  Pesan Sekarang
+</button>
         </div>
 
         <div className="bg-gray-800/50 p-6 rounded-lg">
@@ -543,9 +624,12 @@ const MitshuStoreSPA = () => {
   
   Selamat berbelanja & terima kasih!
 </p>
-          <button className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
-            Pesan Sekarang
-          </button>
+<button
+  onClick={() => window.location.href = "https://wa.me/6285864474973?text=Halo%20saya%20ingin%20order%20Soul%20guitar"}
+  className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600"
+>
+  Pesan Sekarang
+</button>
         </div>
 
         <div className="relative bg-gray-800/50 p-6 rounded-lg">
@@ -585,7 +669,7 @@ const MitshuStoreSPA = () => {
                 onClick={() => handleMaterialSelect(material)}
                 className="block w-full text-left px-2 py-1 hover:bg-gray-600 rounded"
               >
-                {material.name} - {material.price}<br />
+                {material.name}<br />{material.price}<br />
                 {material.description}
               </button>
             ))}
@@ -638,7 +722,7 @@ const MitshuStoreSPA = () => {
                 onClick={() => handleMasterySelect(mastery)}
                 className="block w-full text-left px-2 py-1 hover:bg-gray-600 rounded"
               >
-                {mastery.name} - {mastery.price}
+                {mastery.name}<br />{mastery.price}
               </button>
             ))}
           </div>
@@ -703,7 +787,7 @@ const MitshuStoreSPA = () => {
                 onClick={() => handleRaceSelect(race)}
                 className="block w-full text-left px-2 py-1 hover:bg-gray-600 rounded"
               >
-                {race.name} - {race.price}<br />
+                {race.name}<br />{race.price}<br />
                 {race.description}
               </button>
             ))}
@@ -762,7 +846,7 @@ const MitshuStoreSPA = () => {
                 onClick={() => handleUnlockraceSelect(unlockrace)}
                 className="block w-full text-left px-2 py-1 hover:bg-gray-600 rounded"
               >
-                {unlockrace.name} - {unlockrace.price}
+                {unlockrace.name}<br />{unlockrace.price}
               </button>
             ))}
           </div>
@@ -790,15 +874,6 @@ const MitshuStoreSPA = () => {
         <p className="text-gray-300 mt-4">
           <strong>WAJIB DIBACA SEBELUM MEMBELI</strong>
           <br /><br />
-          - Race V2<br />
-          - Sudah level 850 & Memiliki 500.000 Belly<br />
-          <br /><br />
-          - Race V3<br />
-          - Sudah level 1000 & Memiliki 2JT Belly<br />
-          <br /><br />
-          - Trial Race V4<br />
-          - Sudah Melalukan Pull lever<br />
-          - Bisa carry/joki<br />
           - Tidak mengganti apa pun seperti aksesori, Fighting Style, dll.<br />
           - Aman, proses cepat, terpercaya<br />
           - Diproses sesuai antrian<br /><br />
@@ -820,7 +895,7 @@ const MitshuStoreSPA = () => {
                 onClick={() => handleSwordSelect(sword)}
                 className="block w-full text-left px-2 py-1 hover:bg-gray-600 rounded"
               >
-                {sword.name} - {sword.price}
+                {sword.name}<br />{sword.price}
               </button>
             ))}
           </div>
@@ -879,7 +954,7 @@ const MitshuStoreSPA = () => {
                 onClick={() => handleBossSelect(boss)}
                 className="block w-full text-left px-2 py-1 hover:bg-gray-600 rounded"
               >
-                {boss.name} - {boss.price}
+                {boss.name}<br />{boss.price}
               </button>
             ))}
           </div>
@@ -887,6 +962,69 @@ const MitshuStoreSPA = () => {
         {selectedBoss && (
           <a
             href={selectedBoss.link}
+            className="mt-4 block px-4 py-2 bg-purple-500 text-white rounded-lg text-center hover:bg-purple-600"
+          >
+            Pesan Sekarang
+          </a>
+        )}
+      </div>
+
+      <div className="relative bg-gray-800/50 p-6 rounded-lg">
+        <h4 className="text-lg font-bold text-center mb-2">Kitsune Shirine</h4>
+        <img
+          src="src/image/race.jpg"
+          alt="Package Image"
+          className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
+        />
+        <p className="text-purple-400 text-2xl font-semibold mt-2">
+          {selectedKitsune ? selectedKitsune.price : "Pilih Paket"}
+        </p>
+        <p className="text-gray-300 mt-4">
+          <strong>WAJIB DIBACA SEBELUM MEMBELI</strong>
+          <br /><br />
+          - Paket gacha<br />
+          - Sistemnya Mendapatkan 25 Amber azure,lalu akan di gacha kan<br />
+          - Sudah Berlevel 1600 dan sudah di SEA 3
+          - Yang bisa di dapatkan:
+            Fragment 750
+            Kitsune Aura Color
+            Tailed Beast Title
+            Fox Lamp
+            Kitsune Mask
+            Kitsune Ribbon
+            Kitsune Fruit<br />
+            <br /><br />
+          - Paket FOX LAMP<br />
+          - Gratis unlock all skill<br />
+          - Tidak mengganti apa pun seperti aksesori, Fighting Style, dll.<br />
+          - Aman, proses cepat, terpercaya<br />
+          - Diproses sesuai antrian<br /><br />
+          Setelah pembelian selesai, silakan klik "Konfirmasi Pesanan Selesai"
+          dan beri rating ⭐⭐⭐⭐⭐<br /><br />
+          Selamat berbelanja & terima kasih!
+        </p>
+        <button 
+          onClick={toggleDropdownKitsune} 
+          className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600"
+        >
+          {selectedKitsune ? selectedKitsune.name : "Pilih Paket"}
+        </button>
+        {dropdownKitsuneOpen && (
+          <div className="absolute bg-gray-700 mt-2 rounded-lg shadow-lg p-4 z-10">
+            {kitsunes.map((kitsune) => (
+              <button
+                key={kitsune.name}
+                onClick={() => handleKitsuneSelect(kitsune)}
+                className="block w-full text-left px-2 py-1 hover:bg-gray-600 rounded"
+              >
+                {kitsune.name}<br />{kitsune.price}
+              </button>
+            ))}
+          </div>
+        )}
+        {selectedKitsune && (
+          <a
+            href={selectedKitsune.link}
             className="mt-4 block px-4 py-2 bg-purple-500 text-white rounded-lg text-center hover:bg-purple-600"
           >
             Pesan Sekarang
@@ -903,57 +1041,114 @@ const MitshuStoreSPA = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Basic Account Card */}
         <div className="bg-gray-800/50 p-6 rounded-lg">
-          <h3 className="text-xl font-bold mb-4">Akun Random</h3>
-          <img
-            src="src/download.png" // Replace with your image URL
-            alt="Package Image"
-            className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
-          />
-          <p className="mb-4">
-            Akun ini cocok untuk pemula yang ingin memulai perjalanan mereka
-            dengan item dasar dan level awal.
-          </p>
-          <ul className="space-y-3">
-            <li className="flex items-center">
-              <CheckCircle className="w-5 h-5 text-purple-400 mr-2" />
-              Level 1000+
-            </li>
-            <li className="flex items-center">
-              <CheckCircle className="w-5 h-5 text-purple-400 mr-2" />
-              Basic Items
-            </li>
-            <li className="flex items-center">
-              <CheckCircle className="w-5 h-5 text-purple-400 mr-2" />
-              Support for Beginners
-            </li>
-            <button className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
-              Pesan Sekarang
-            </button>
-          </ul>
-        </div>
+  <h3 className="text-2xl font-bold mb-4">AKUN BLOX FRUIT RACE AWAKENING V4 [LEVEL MAX] [DATPOL]</h3>
+  <img
+    src="/api/placeholder/400/200"
+    alt="Game Account Preview"
+    className="w-full h-48 object-cover rounded-lg mb-4 grayscale hover:grayscale-0 transition duration-300"
+  />
+  <div className="space-y-4">
+    <div>
+      <h4 className="text-lg font-semibold mb-2 flex items-center">
+        <svg className="w-5 h-5 text-purple-400 mr-2" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 17.75l5.5 3.25-1.5-6.25L22 9.25l-6.5-.5L12 2 8.5 8.75 2 9.25l5.5 5.5-1.5 6.25z"/>
+        </svg>
+        Spesifikasi Utama
+      </h4>
+      <ul className="space-y-2">
+        <li className="flex items-center">
+                      <CheckCircle className="w-5 h-5 text-purple-400 mr-2" />
+          Level MAX 2550
+        </li>
+        <li className="flex items-center">
+                      <CheckCircle className="w-5 h-5 text-purple-400 mr-2" />
+          Race Awakening V4 T1
+        </li>
+        <li className="flex items-center">
+                      <CheckCircle className="w-5 h-5 text-purple-400 mr-2" />
+          Full Melee V1 & V2
+        </li>
+      </ul>
+    </div>
 
-        {/* Premium Account Card */}
-        <div className="bg-gray-800/50 p-6 rounded-lg">
-          <h3 className="text-xl font-bold mb-4">Akun Premium</h3>
-          <p className="mb-4">
-            Akun ini dirancang untuk pemain serius dengan akses ke item langka
-            dan level yang lebih tinggi.
-          </p>
-          <ul className="space-y-3">
-            <li className="flex items-center">
-              <CheckCircle className="w-5 h-5 text-purple-400 mr-2" />
-              Level 2000+
-            </li>
-            <li className="flex items-center">
-              <CheckCircle className="w-5 h-5 text-purple-400 mr-2" />
-              Rare Items
-            </li>
-            <li className="flex items-center">
-              <CheckCircle className="w-5 h-5 text-purple-400 mr-2" />
-              Exclusive Access to Events
-            </li>
-          </ul>
-        </div>
+    <h4 className="text-lg font-semibold mb-2 flex items-center">
+      <svg className="w-5 h-5 text-purple-400 mr-2" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 17.75l5.5 3.25-1.5-6.25L22 9.25l-6.5-.5L12 2 8.5 8.75 2 9.25l5.5 5.5-1.5 6.25z"/>
+      </svg>
+      Bonus Items
+    </h4>
+    <ul className="space-y-2">
+      <li className="flex items-center">
+        <CheckCircle className="w-5 h-5 text-purple-400 mr-2" />
+        Soul Gitar + Cursed Dual Katana
+      </li>
+      <li className="flex items-center">
+        <CheckCircle className="w-5 h-5 text-purple-400 mr-2" />
+        Legendary Sword Random
+      </li>
+      <li className="flex items-center">
+        <CheckCircle className="w-5 h-5 text-purple-400 mr-2" />
+        5-10M Belly
+      </li>
+    </ul>
+
+    <h4 className="text-lg font-semibold mb-2 flex items-center">Informasi tambahan</h4>
+    <p className="mb-4">
+      - Bonus 1 Race Awakening V4 T1 (Shark / Human / Sky / Mink / Cyborg / Ghoul)<br />
+      - Bonus Mythical Lainnya (Jika Beruntung) <br />
+      - Bonus Legendary Accessories di Inventory <br />
+      - Bonus Bones & Fragment <br />
+      - 5-10M Belly<br />
+      - Sudah Full Body Buso Haki + Soru + Geppo<br />
+    </p>
+
+    <div className="bg-gray-700/50 p-4 rounded-lg">
+      <div className="flex items-center mb-2">
+        <svg className="w-5 h-5 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2l-1 5h-5l4 4-1 5 5-1 4-4 4 1-5-5h-5z"/>
+        </svg>
+        <span className="font-semibold">Informasi Penting</span>
+      </div>
+      <ul className="space-y-1 text-sm">
+        <li>• Belum diverifikasi email dan no. HP</li>
+        <li>• Kode reset status: SUB2UNCLEKIZARU</li>
+        <li>• Akun berumur 13+ tahun</li>
+      </ul>
+    </div>
+  </div>
+
+  <div className="flex flex-col space-y-4 mt-4">
+  <button onClick={toggleDropdownAccount} className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
+  {selectedAccount ? selectedAccount.name : "Pilih Race akun"}
+</button>
+
+{dropdownAccountOpen && (
+  <div className="absolute bg-gray-700 mt-2 rounded-lg shadow-lg p-4 z-10">
+    {accounts.map((account) => (
+      <button
+        key={account.name}
+        onClick={() => handleAccountSelect(account)}
+        className="block w-full text-left px-2 py-1 hover:bg-gray-600 rounded"
+      >
+        {account.name}<br />{account.price} <br />Stock: {account.stock}
+      </button>
+    ))}
+  </div>
+)}
+
+<a
+  href={selectedAccount ? selectedAccount.link : "#"}
+  className="w-full px-6 py-3 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition duration-300 font-semibold text-center mt-4"
+>
+  Pesan Sekarang
+</a>
+
+<p className="text-sm text-gray-300 text-center mt-2">
+  Harap verifikasi dengan email/HP setelah pembelian
+</p>
+  </div>
+</div>
+
       </div>
     </div>
   );
@@ -966,13 +1161,49 @@ const MitshuStoreSPA = () => {
         ? JSON.parse(savedTestimonials)
         : [
             {
-              name: "John Doe",
+              name: "",
               role: "Customer",
               comment: "Pelayanan cepat dan profesional, recommended!",
               rating: 5,
             },
             {
-              name: "Jane Smith",
+              name: "",
+              role: "Customer",
+              comment: "Harga bersahabat, hasil memuaskan!",
+              rating: 5,
+            },
+            {
+              name: "",
+              role: "Customer",
+              comment: "Harga bersahabat, hasil memuaskan!",
+              rating: 5,
+            },
+            {
+              name: "",
+              role: "Customer",
+              comment: "Harga bersahabat, hasil memuaskan!",
+              rating: 5,
+            },
+            {
+              name: "",
+              role: "Customer",
+              comment: "Harga bersahabat, hasil memuaskan!",
+              rating: 5,
+            },
+            {
+              name: "",
+              role: "Customer",
+              comment: "Harga bersahabat, hasil memuaskan!",
+              rating: 5,
+            },
+            {
+              name: "",
+              role: "Customer",
+              comment: "Harga bersahabat, hasil memuaskan!",
+              rating: 5,
+            },
+            {
+              name: "",
               role: "Customer",
               comment: "Harga bersahabat, hasil memuaskan!",
               rating: 5,
@@ -1007,7 +1238,7 @@ const MitshuStoreSPA = () => {
     return (
       <div className="space-y-8">
         <h2 className="text-3xl font-bold text-center">Testimoni</h2>
-
+        <p className="text-center">Testimoni ini di ambil dari costumer yang sudah membeli dan Ecommerce Itemku</p>
         {/* Testimonial Form */}
 
 
