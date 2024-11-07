@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { addTestimonial, getTestimonials } from './firebase';
+
 import {
   Mail,
   Phone,
@@ -635,7 +637,7 @@ const MitshuStoreSPA = () => {
         <div className="relative bg-gray-800/50 p-6 rounded-lg">
         <h4 className="text-lg font-bold text-center mb-2">Material</h4>
         <img
-          src="src/image/race.jpg"
+          src="src/image/material.jpg"
           alt="Package Image"
           className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
         />
@@ -645,13 +647,15 @@ const MitshuStoreSPA = () => {
         <p className="text-gray-300 mt-4">
           <strong>WAJIB DIBACA SEBELUM MEMBELI</strong>
           <br /><br />
-          - Mastery fruit & gun hanya bisa order sampai 400 mastery<br />
-          - Mastery mele & sword bisa sampai max<br />
-          - Pastikan stat mastery sesuai agar pengerjaan cepat<br />
-          - Tidak mengganti apa pun seperti aksesori, Fighting Style, dll.<br />
-          - Aman, proses cepat, terpercaya<br />
-          - Diproses sesuai antrian<br /><br />
-          Setelah pembelian selesai, silakan klik "Konfirmasi Pesanan Selesai"
+          - List material<br />
+          - Uncommon dan Common(Angel Wings,Leather,Magma Ore,Scrap Metal,Wooden Plank,Yeti Fur,Fish Tail,Mystic Droplet,Radioactive,Vampire
+          Vang,Gunpowder,Mini Tusk)<br />
+          - Rare(Meteorite,Conjured Cocoa,Demonic Wisp,Dragon Scale)<br />
+          - Untuk Uncommon Dan Common Mendapat 25 Material<br />
+          - Untuk Rare Mendapat 10 Material
+          <br /><br />
+          - 100 Ectoplasm<br />
+          - 100 Bones<br />
           dan beri rating ⭐⭐⭐⭐⭐<br /><br />
           Selamat berbelanja & terima kasih!
         </p>
@@ -688,7 +692,7 @@ const MitshuStoreSPA = () => {
         <div className="relative bg-gray-800/50 p-6 rounded-lg">
         <h4 className="text-lg font-bold text-center mb-2">Mastery</h4>
         <img
-          src="src/image/race.jpg"
+          src="src/image/mastery.jpg"
           alt="Package Image"
           className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
         />
@@ -806,7 +810,7 @@ const MitshuStoreSPA = () => {
         <div className="relative bg-gray-800/50 p-6 rounded-lg">
         <h4 className="text-lg font-bold text-center mb-2">Unlock Cyborg & Ghoul</h4>
         <img
-          src="src/image/race.jpg"
+          src="src/image/unlockrace.jpg"
           alt="Package Image"
           className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
         />
@@ -816,15 +820,9 @@ const MitshuStoreSPA = () => {
         <p className="text-gray-300 mt-4">
           <strong>WAJIB DIBACA SEBELUM MEMBELI</strong>
           <br /><br />
-          - Race V2<br />
-          - Sudah level 850 & Memiliki 500.000 Belly<br />
+          - Race Cyborg<br />
+          - Minimal Memiliki Fragment Lebih Dari 10.000
           <br /><br />
-          - Race V3<br />
-          - Sudah level 1000 & Memiliki 2JT Belly<br />
-          <br /><br />
-          - Trial Race V4<br />
-          - Sudah Melalukan Pull lever<br />
-          - Bisa carry/joki<br />
           - Tidak mengganti apa pun seperti aksesori, Fighting Style, dll.<br />
           - Aman, proses cepat, terpercaya<br />
           - Diproses sesuai antrian<br /><br />
@@ -864,7 +862,7 @@ const MitshuStoreSPA = () => {
         <div className="relative bg-gray-800/50 p-6 rounded-lg">
         <h4 className="text-lg font-bold text-center mb-2">Legendary Sword</h4>
         <img
-          src="src/image/race.jpg"
+          src="src/image/sword.jpg"
           alt="Package Image"
           className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
         />
@@ -874,6 +872,9 @@ const MitshuStoreSPA = () => {
         <p className="text-gray-300 mt-4">
           <strong>WAJIB DIBACA SEBELUM MEMBELI</strong>
           <br /><br />
+          - Yama,Tusita,dan Hallo scythe
+          <br />
+          - Wajib Berada di sea 3 <br />
           - Tidak mengganti apa pun seperti aksesori, Fighting Style, dll.<br />
           - Aman, proses cepat, terpercaya<br />
           - Diproses sesuai antrian<br /><br />
@@ -914,7 +915,7 @@ const MitshuStoreSPA = () => {
       <div className="relative bg-gray-800/50 p-6 rounded-lg">
         <h4 className="text-lg font-bold text-center mb-2">Raid Boss</h4>
         <img
-          src="src/image/race.jpg"
+          src="src/image/raidboss.jpg"
           alt="Package Image"
           className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
         />
@@ -972,7 +973,7 @@ const MitshuStoreSPA = () => {
       <div className="relative bg-gray-800/50 p-6 rounded-lg">
         <h4 className="text-lg font-bold text-center mb-2">Kitsune Shirine</h4>
         <img
-          src="src/image/race.jpg"
+          src="src/image/gachakitsune.jpg"
           alt="Package Image"
           className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
         />
@@ -1043,9 +1044,9 @@ const MitshuStoreSPA = () => {
         <div className="bg-gray-800/50 p-6 rounded-lg">
   <h3 className="text-2xl font-bold mb-4">AKUN BLOX FRUIT RACE AWAKENING V4 [LEVEL MAX] [DATPOL]</h3>
   <img
-    src="/api/placeholder/400/200"
+    src="src/image/akun.jpg"
     alt="Game Account Preview"
-    className="w-full h-48 object-cover rounded-lg mb-4 grayscale hover:grayscale-0 transition duration-300"
+    className="w-full h-70 object-cover rounded-lg mb-4 grayscale hover:grayscale-0 transition duration-300"
   />
   <div className="space-y-4">
     <div>
@@ -1154,107 +1155,95 @@ const MitshuStoreSPA = () => {
   );
 
   const TestiContent = () => {
-    // Load testimonials from local storage or set default testimonials
-    const [testimonials, setTestimonials] = useState(() => {
-      const savedTestimonials = localStorage.getItem("testimonials");
-      return savedTestimonials
-        ? JSON.parse(savedTestimonials)
-        : [
-            {
-              name: "",
-              role: "Customer",
-              comment: "Pelayanan cepat dan profesional, recommended!",
-              rating: 5,
-            },
-            {
-              name: "",
-              role: "Customer",
-              comment: "Harga bersahabat, hasil memuaskan!",
-              rating: 5,
-            },
-            {
-              name: "",
-              role: "Customer",
-              comment: "Harga bersahabat, hasil memuaskan!",
-              rating: 5,
-            },
-            {
-              name: "",
-              role: "Customer",
-              comment: "Harga bersahabat, hasil memuaskan!",
-              rating: 5,
-            },
-            {
-              name: "",
-              role: "Customer",
-              comment: "Harga bersahabat, hasil memuaskan!",
-              rating: 5,
-            },
-            {
-              name: "",
-              role: "Customer",
-              comment: "Harga bersahabat, hasil memuaskan!",
-              rating: 5,
-            },
-            {
-              name: "",
-              role: "Customer",
-              comment: "Harga bersahabat, hasil memuaskan!",
-              rating: 5,
-            },
-            {
-              name: "",
-              role: "Customer",
-              comment: "Harga bersahabat, hasil memuaskan!",
-              rating: 5,
-            },
-          ];
-    });
-
-    // State for new testimonial form
-    const [name, setName] = useState("");
-    const [comment, setComment] = useState("");
+    const [testimonials, setTestimonials] = useState([]);
+    const [name, setName] = useState('');
+    const [comment, setComment] = useState('');
     const [rating, setRating] = useState(5);
-
-    // Function to save testimonials to local storage whenever testimonials change
+  
+    // Ambil data testimonial saat komponen dimuat
     useEffect(() => {
-      localStorage.setItem("testimonials", JSON.stringify(testimonials));
-    }, [testimonials]);
-
-    // Function to handle form submission
-    const handleSubmit = (e) => {
+      const fetchTestimonials = async () => {
+        const data = await getTestimonials();
+        setTestimonials(data);
+      };
+      fetchTestimonials();
+    }, []);
+  
+    // Fungsi untuk menangani pengiriman form
+    const handleSubmit = async (e) => {
       e.preventDefault();
-
-      // Add new testimonial to the list
-      const newTestimonial = { name, role: "Customer", comment, rating };
-      setTestimonials([newTestimonial, ...testimonials]);
-
-      // Clear form fields
-      setName("");
-      setComment("");
+      await addTestimonial(name, comment, rating);
+      setName('');
+      setComment('');
       setRating(5);
+  
+      // Ambil testimonial terbaru setelah penambahan
+      const data = await getTestimonials();
+      setTestimonials(data);
     };
-
+  
     return (
-      <div className="space-y-8">
+      <div className="max-w-5xl mx-auto space-y-8">
         <h2 className="text-3xl font-bold text-center">Testimoni</h2>
-        <p className="text-center">Testimoni ini di ambil dari costumer yang sudah membeli dan Ecommerce Itemku</p>
-        {/* Testimonial Form */}
-
-
-        {/* Display Testimonials */}
+        <form onSubmit={handleSubmit} className="bg-gray-800/50 p-6 rounded-lg">
+          <div className="space-y-4">
+            <div>
+              <label className="block text-white font-medium" htmlFor="name">Nama</label>
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="mt-2 p-2 w-full rounded bg-gray-700 text-white"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-white font-medium" htmlFor="comment">Testimoni</label>
+              <textarea
+                id="comment"
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+                className="mt-2 p-2 w-full rounded bg-gray-700 text-white"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-white font-medium" htmlFor="rating">Rating</label>
+              <select
+                id="rating"
+                value={rating}
+                onChange={(e) => setRating(Number(e.target.value))}
+                className="mt-2 p-2 w-full rounded bg-gray-700 text-white"
+              >
+                <option value={1}>1 ⭐</option>
+                <option value={2}>2 ⭐⭐</option>
+                <option value={3}>3 ⭐⭐⭐</option>
+                <option value={4}>4 ⭐⭐⭐⭐</option>
+                <option value={5}>5 ⭐⭐⭐⭐⭐</option>
+              </select>
+            </div>
+          </div>
+          <button
+            type="submit"
+            className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600"
+          >
+            Kirim Testimoni
+          </button>
+        </form>
+  
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {testimonials.map((testi, index) => (
             <div key={index} className="bg-gray-800/50 p-6 rounded-lg">
-              <p className="italic mb-4">"{testi.comment}"</p>
+              <p className="italic mb-4 text-white">{testi.comment}</p>
               <div className="flex items-center">
                 <div className="flex-1">
-                  <p className="font-bold">{testi.name}</p>
-                  <p className="text-sm text-gray-400">{testi.role}</p>
+                  <p className="font-bold text-white">{testi.name}</p>
+                  <p className="text-sm text-gray-400">Customer</p>
                 </div>
                 <div className="flex text-yellow-400">
                   {[...Array(testi.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
+                    <span key={i} className="w-4 h-4">⭐</span>
                   ))}
                 </div>
               </div>
@@ -1348,8 +1337,11 @@ const MitshuStoreSPA = () => {
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4">Jam Operasional</h3>
-              <p>Senin - Minggu</p>
+              <p>Senin - Jumat</p>
+              <p>17:00 - 19:00 WIB</p><br />
+              <p>Sabtu & Minggu</p>
               <p>09:00 - 21:00 WIB</p>
+              <span className="text-sm"><i>Note:Jam operasional bisa berubah tergantung kesibukan</i></span>
               <div className="flex space-x-1 mt-1">
                 <a
                   href="https://www.instagram.com/fervianoo/"
