@@ -33,7 +33,7 @@ const MitshuStoreSPA = () => {
 
         {/* New image added here */}
         <img
-          src="src/download.png" // Replace with the actual path to your image
+          src="/MitshuStore/images/main.png" // Replace with the actual path to your image
           alt="Mitshu Store Banner"
           className="mx-auto mb-4 w-25 max-w-sm rounded-lg" // Change max-w-md to max-w-sm
         />
@@ -380,7 +380,7 @@ const MitshuStoreSPA = () => {
       <div className="bg-gray-800/50 p-5 rounded-lg">
           <h4 className="text-lg font-bold text-center mb-2">Sanguane Art</h4>
           <img
-            src="src/image/SA.jpg" // Replace with your image URL
+            src="/MitshuStore/images/SA.jpg" // Replace with your image URL
             alt="Package Image"
             className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
           />
@@ -416,7 +416,7 @@ const MitshuStoreSPA = () => {
       <div className="bg-gray-800/50 p-5 rounded-lg">
           <h4 className="text-lg font-bold text-center mb-2">Leviathan Heart</h4>
           <img
-            src="src/image/leviheart.jpg" // Replace with your image URL
+            src="/MitshuStore/images/leviheart.jpg" // Replace with your image URL
             alt="Package Image"
             className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
           />
@@ -449,7 +449,7 @@ const MitshuStoreSPA = () => {
           <h4 className="text-lg font-bold text-center mb-2">Belly</h4>
 
           <img
-            src="src/image/Belly.jpg" // Replace with your image URL
+            src="/MitshuStore/images/Belly.jpg" // Replace with your image URL
             alt="Package Image"
             className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
           />
@@ -480,7 +480,7 @@ const MitshuStoreSPA = () => {
         <div className="bg-gray-800/50 p-6 rounded-lg">
         <h4 className="text-lg font-bold text-center mb-2">Leveling</h4>
           <img
-            src="src/image/level.jpg" // Replace with your image URL
+            src="/MitshuStore/images/level.jpg" // Replace with your image URL
             alt="Package Image"
             className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
           />
@@ -510,7 +510,7 @@ const MitshuStoreSPA = () => {
         <div className="bg-gray-800/50 p-6 rounded-lg">
         <h4 className="text-lg font-bold text-center mb-2">Cursed dual katana</h4>
           <img
-            src="src/image/cdk.jpg" // Replace with your image URL
+            src="/MitshuStore/images/cdk.jpg" // Replace with your image URL
             alt="Package Image"
             className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
           />
@@ -541,7 +541,7 @@ const MitshuStoreSPA = () => {
         <div className="bg-gray-800/50 p-6 rounded-lg">
         <h4 className="text-lg font-bold text-center mb-2">True triple katana</h4>
           <img
-            src="src/image/ttk.jpg" // Replace with your image URL
+            src="/MitshuStore/images/ttk.jpg" // Replace with your image URL
             alt="Package Image"
             className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
           />
@@ -573,7 +573,7 @@ const MitshuStoreSPA = () => {
         <div className="bg-gray-800/50 p-6 rounded-lg">
         <h4 className="text-lg font-bold text-center mb-2">Shark Anchor</h4>
           <img
-            src="src/image/sharkanchor.jpg" // Replace with your image URL
+            src="/MitshuStore/images/sharkanchor.jpg" // Replace with your image URL
             alt="Package Image"
             className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
           />
@@ -605,7 +605,7 @@ const MitshuStoreSPA = () => {
         <div className="bg-gray-800/50 p-6 rounded-lg">
         <h4 className="text-lg font-bold text-center mb-2">Soul Guitar</h4>
           <img
-            src="src/image/soulguitar.jpg" // Replace with your image URL
+            src="/MitshuStore/images/soulguitar.jpg" // Replace with your image URL
             alt="Package Image"
             className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
           />
@@ -637,7 +637,7 @@ const MitshuStoreSPA = () => {
         <div className="relative bg-gray-800/50 p-6 rounded-lg">
         <h4 className="text-lg font-bold text-center mb-2">Material</h4>
         <img
-          src="src/image/material.jpg"
+          src="/MitshuStore/images/material.jpg"
           alt="Package Image"
           className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
         />
@@ -692,7 +692,7 @@ const MitshuStoreSPA = () => {
         <div className="relative bg-gray-800/50 p-6 rounded-lg">
         <h4 className="text-lg font-bold text-center mb-2">Mastery</h4>
         <img
-          src="src/image/mastery.jpg"
+          src="/MitshuStore/images/mastery.jpg"
           alt="Package Image"
           className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
         />
@@ -744,7 +744,7 @@ const MitshuStoreSPA = () => {
         <div className="relative bg-gray-800/50 p-6 rounded-lg">
         <h4 className="text-lg font-bold text-center mb-2">Race</h4>
         <img
-          src="src/image/race.jpg"
+          src="/MitshuStore/images/race.jpg"
           alt="Package Image"
           className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
         />
@@ -810,7 +810,7 @@ const MitshuStoreSPA = () => {
         <div className="relative bg-gray-800/50 p-6 rounded-lg">
         <h4 className="text-lg font-bold text-center mb-2">Unlock Cyborg & Ghoul</h4>
         <img
-          src="src/image/unlockrace.jpg"
+          src="/MitshuStore/images/unlockrace.jpg"
           alt="Package Image"
           className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
         />
@@ -862,7 +862,7 @@ const MitshuStoreSPA = () => {
         <div className="relative bg-gray-800/50 p-6 rounded-lg">
         <h4 className="text-lg font-bold text-center mb-2">Legendary Sword</h4>
         <img
-          src="src/image/sword.jpg"
+          src="/MitshuStore/images/sword.jpg"
           alt="Package Image"
           className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
         />
@@ -915,7 +915,7 @@ const MitshuStoreSPA = () => {
       <div className="relative bg-gray-800/50 p-6 rounded-lg">
         <h4 className="text-lg font-bold text-center mb-2">Raid Boss</h4>
         <img
-          src="src/image/raidboss.jpg"
+          src="/MitshuStore/images/raidboss.jpg"
           alt="Package Image"
           className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
         />
@@ -973,7 +973,7 @@ const MitshuStoreSPA = () => {
       <div className="relative bg-gray-800/50 p-6 rounded-lg">
         <h4 className="text-lg font-bold text-center mb-2">Kitsune Shirine</h4>
         <img
-          src="src/image/gachakitsune.jpg"
+          src="/MitshuStore/images/gachakitsune.jpg"
           alt="Package Image"
           className="w-full h-90 object-cover rounded-lg grayscale hover:grayscale-0 transition duration-300"
         />
@@ -1044,7 +1044,7 @@ const MitshuStoreSPA = () => {
         <div className="bg-gray-800/50 p-6 rounded-lg">
   <h3 className="text-2xl font-bold mb-4">AKUN BLOX FRUIT RACE AWAKENING V4 [LEVEL MAX] [DATPOL]</h3>
   <img
-    src="src/image/akun.jpg"
+    src="/MitshuStore/images/akun.jpg"
     alt="Game Account Preview"
     className="w-full h-70 object-cover rounded-lg mb-4 grayscale hover:grayscale-0 transition duration-300"
   />
